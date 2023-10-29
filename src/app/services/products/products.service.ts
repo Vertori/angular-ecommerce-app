@@ -7,7 +7,7 @@ import { Product } from 'src/app/models/product';
   providedIn: 'root',
 })
 export class ProductsService {
-  private productsUrl: string = 'https://fakestoreapi.com/productsdas';
+  private productsUrl: string = 'https://fakestoreapi.com/products';
 
   constructor(private http: HttpClient) {}
 

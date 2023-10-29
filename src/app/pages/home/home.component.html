@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div>
+  <app-hero></app-hero>
+  <section class="home-section">
+    <div class="products-container">
+      <div class="products-grid">
+        <app-product
+          *ngFor="let item of filteredProducts"
+          [product]="item"
+        ></app-product>
+      </div>
+    </div>
+  </section>
+</div>

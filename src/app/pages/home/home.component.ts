@@ -9,17 +9,29 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
+  filteredProducts: Product[] = [];
 
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
     this.productsService.getAllProducts().subscribe({
       next: (data) => {
-        console.log(data);
+        this.products = data;
+        this.filterProducts();
       },
       error: (error) => {
         console.log(error.message);
       },
     });
   }
+
+  filterProducts = () => {
+    this.filteredProducts = this.products.filter((product) => {
+      return (
+        product.category === "men's clothing" ||
+        product.category === "women's clothing" ||
+        product.category === 'jewelery'
+      );
+    });
+  };
 }
