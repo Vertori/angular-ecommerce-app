@@ -16,6 +16,7 @@ import { JeweleryComponent } from './pages/jewelery/jewelery.component';
 import { MensClothingComponent } from './pages/mens-clothing/mens-clothing.component';
 import { WomensClothingComponent } from './pages/womens-clothing/womens-clothing.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,9 +37,10 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
