@@ -1,1 +1,37 @@
-<p>product works!</p>
+<div class="product-container">
+  <div class="first-wrapper">
+    <div class="image-wrapper">
+      <!-- image  -->
+      <div class="image-div">
+        <img
+          class="product-image"
+          [src]="product?.image"
+          [alt]="product?.title"
+        />
+      </div>
+    </div>
+    <!-- buttons  -->
+    <div class="buttons-wrapper">
+      <button>
+        <div class="plus-button-wrapper">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </div>
+      </button>
+      <button>
+        <div>
+          <a class="eye-icon-wrapper">
+            <mat-icon>remove_red_eye</mat-icon>
+          </a>
+        </div>
+      </button>
+    </div>
+  </div>
+  <!-- category, title, price  -->
+  <div class="second-wrapper">
+    <div class="category">{{ product?.category }}</div>
+    <a [routerLink]="'/product/' + product?.id">
+      <h2 class="title">{{ product?.title }}</h2>
+    </a>
+    <div class="price">{{ product?.price }} zł</div>
+  </div>
+</div>

@@ -6,6 +6,7 @@
 .products-container {
   width: 100%;
   padding-inline: 30px;
+  margin-inline: auto;
 }
 @media (min-width: 640px) {
   .products-container {

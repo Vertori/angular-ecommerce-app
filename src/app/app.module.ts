@@ -17,6 +17,7 @@ import { MensClothingComponent } from './pages/mens-clothing/mens-clothing.compo
 import { WomensClothingComponent } from './pages/womens-clothing/womens-clothing.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatIconModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
