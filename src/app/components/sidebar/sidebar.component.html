@@ -1,1 +1,15 @@
-<p>sidebar works!</p>
+<div
+  [ngClass]="{
+    'sidebar-open': sidebarService.getIsOpen(),
+    'sidebar-closed': !sidebarService.getIsOpen()
+  }"
+  class="sidebar-container"
+>
+  <div class="sidebar-wrapper">
+    <div class="shopping-cart">Shopping Cart (0)</div>
+    <!-- icon  -->
+    <div (click)="sidebarService.toggleSidebar()" class="arrow-wrapper">
+      <span class="material-icons"> east </span>
+    </div>
+  </div>
+</div>

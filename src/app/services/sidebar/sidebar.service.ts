@@ -10,12 +10,17 @@ export class SidebarService {
     return this.isOpen;
   };
 
-  setIsOpen = (value: boolean) => {
+  setIsOpen = (value: boolean): void => {
     this.isOpen = value;
   };
 
   handleClose = (): void => {
     this.isOpen = false;
+    console.log("closed")
+  };
+
+  toggleSidebar = (): void => {
+    this.isOpen = !this.isOpen;
   };
 
   constructor() {}

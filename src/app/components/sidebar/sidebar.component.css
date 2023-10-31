@@ -1,0 +1,59 @@
+.sidebar-open {
+  right: 0px;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.sidebar-closed {
+  right: -100%;
+}
+
+.sidebar-container {
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  top: 0px;
+  height: 100%;
+  transition: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  z-index: 20;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .sidebar-container {
+    width: 35vw;
+  }
+}
+@media (min-width: 1024px) {
+  .sidebar-container {
+    max-width: 30vw;
+    padding-inline: 35px;
+  }
+}
+
+.sidebar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.shopping-cart {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+.arrow-wrapper {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
