@@ -12,11 +12,13 @@
     </div>
     <!-- buttons  -->
     <div class="buttons-wrapper">
-      <button>
+      <!-- add to cart button  -->
+      <button *ngIf="product" (click)="addToCart(product, product.id)">
         <div class="plus-button-wrapper">
           <mat-icon>add_shopping_cart</mat-icon>
         </div>
       </button>
+      <!-- remove from cart button  -->
       <button>
         <div>
           <a class="eye-icon-wrapper">
