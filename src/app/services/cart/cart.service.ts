@@ -31,7 +31,7 @@ export class CartService {
   }
 
   getCart(): Observable<Product[]>{
-    return this.cartSubject.asObservable();
+    return this.cart$;
   }
 
   constructor() {}

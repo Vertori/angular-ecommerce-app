@@ -1,1 +1,47 @@
-<p>cart-item works!</p>
+<div class="cart-item-container">
+    <div class="cart-item-wrapper">
+       <!-- image  -->
+      <a>
+        <img class="product-image" [src]="product.image" [alt]="product.title" />
+      </a>
+      <div class="flex-wrapper">
+         <!-- title amd remove icon -->
+        <div class="title-icon">
+          <!-- title  -->
+          <a>
+            {{product.title}}
+        </a>
+           <!-- remove icon -->
+          <div
+
+            class="remove-icon"
+          >
+          <span class="material-icons"> close </span>
+          </div>
+        </div>
+        <div class="item-info-wrapper">
+           <!-- quantity  -->
+          <div class="quantity-wrapper">
+            <!-- minus icon  -->
+            <div  class="icon-minus">
+                <span class="material-icons"> remove </span>
+            </div>
+             <!-- amount  -->
+            <div class="amount">
+              {{product.amount}}
+            </div>
+             <!-- plus icon  -->
+            <div class="icon-plus">
+                <span class="material-icons"> add </span>
+            </div>
+          </div>
+           <!-- item price  -->
+          <div class="price">
+            {{product.price}} zł
+          </div>
+           <!-- final price  -->
+          <div class="final-price">{{product.amount !== undefined ? (product.price*product.amount).toFixed(2) + ' zł' : ''}}</div>
+        </div>
+      </div>
+    </div>
+</div>

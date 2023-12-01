@@ -12,7 +12,8 @@
       <span class="material-icons"> east </span>
     </div>
   </div>
-  <div>
-    <p *ngFor="let product of cart">{{ product.title }}</p>
+  <div class="cart-products-wrapper">
+    <!-- cart items -->
+    <app-cart-item *ngFor="let product of cart" [product]="product"></app-cart-item>
   </div>
 </div>
