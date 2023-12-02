@@ -9,6 +9,7 @@ export class CartService {
   private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
   public cart$: Observable<Product[]> = this.cartSubject.asObservable();
 
+  //  add to cart
   addToCart(product: Product, id: number): void {
     const newItem = { ...product, amount: 1 };
 
@@ -30,8 +31,15 @@ export class CartService {
     }
   }
 
-  getCart(): Observable<Product[]>{
+  // get cart
+  getCart(): Observable<Product[]> {
     return this.cart$;
+  }
+
+  // remove from cart
+  removeFromCart(id: number): void {
+    const newCart = this.cartSubject.value.filter((item) => item.id !== id);
+    this.cartSubject.next(newCart);
   }
 
   constructor() {}
