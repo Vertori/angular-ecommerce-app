@@ -14,6 +14,25 @@
   </div>
   <div class="cart-products-wrapper">
     <!-- cart items -->
-    <app-cart-item *ngFor="let product of cart" [product]="product"></app-cart-item>
+    <app-cart-item
+      *ngFor="let product of cart"
+      [product]="product"
+    ></app-cart-item>
+  </div>
+
+  <div class="sidebar-nav">
+    <div class="actions-wrapper">
+      <!-- total  -->
+      <div class="total">
+        <span>Total:</span>
+        total zł
+      </div>
+      <!-- clear cart icon -->
+      <div (click)="clearCart()" class="clear-cart">
+        <span class="material-icons"> delete </span>
+      </div>
+    </div>
+    <a routerLink="/" class="view-cart"> View Cart </a>
+    <a routerLink="/" class="checkout"> Checkout </a>
   </div>
 </div>

@@ -12,9 +12,16 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 export class SidebarComponent implements OnInit {
   cart: Product[] = [];
 
-  constructor(public sidebarService: SidebarService, private cartService: CartService) {}
+  constructor(
+    public sidebarService: SidebarService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-   this.cartService.getCart().subscribe((cart) => this.cart = cart)
+    this.cartService.getCart().subscribe((cart) => (this.cart = cart));
+  }
+
+  clearCart(): void {
+    this.cartService.clearCart();
   }
 }

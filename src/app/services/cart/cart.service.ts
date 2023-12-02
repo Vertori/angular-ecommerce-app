@@ -74,5 +74,10 @@ export class CartService {
     }
   }
 
+  //cleart cart
+  clearCart(): void {
+    this.cartSubject.next([]);
+  }
+
   constructor() {}
 }
