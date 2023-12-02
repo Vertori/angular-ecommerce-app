@@ -6,7 +6,9 @@ import { Product } from 'src/app/models/product';
   providedIn: 'root',
 })
 export class CartService {
-  private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<
+    Product[]
+  >([]);
   public cart$: Observable<Product[]> = this.cartSubject.asObservable();
 
   //  add to cart
@@ -41,6 +43,15 @@ export class CartService {
     const newCart = this.cartSubject.value.filter((item) => item.id !== id);
     this.cartSubject.next(newCart);
   }
+
+  //increase amount
+  increaseAmount(id: number): void {
+    const cartItem = this.cartSubject.value.find((item) => item.id === id);
+    if (cartItem) {
+      this.addToCart(cartItem, id);
+    }
+  }
+
 
   constructor() {}
 }

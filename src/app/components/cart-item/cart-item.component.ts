@@ -13,7 +13,12 @@ export class CartItemComponent {
 
   constructor(private cartService: CartService) {}
 
-  removeFromCart(id: number) {
+  removeFromCart(id: number): void {
     this.cartService.removeFromCart(id);
   }
+
+  increaseAmount(id: number): void {
+    this.cartService.increaseAmount(id);
+  }
+
 }

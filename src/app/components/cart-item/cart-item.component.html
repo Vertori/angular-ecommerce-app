@@ -28,7 +28,7 @@
             {{ product.amount }}
           </div>
           <!-- plus icon  -->
-          <div class="icon-plus">
+          <div class="icon-plus" (click)="increaseAmount(product.id)">
             <span class="material-icons"> add </span>
           </div>
         </div>
