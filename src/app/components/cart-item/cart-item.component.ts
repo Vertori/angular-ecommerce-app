@@ -21,4 +21,7 @@ export class CartItemComponent {
     this.cartService.increaseAmount(id);
   }
 
+  decreaseAmount(id: number): void {
+    this.cartService.decreaseAmount(id);
+  }
 }

@@ -52,6 +52,27 @@ export class CartService {
     }
   }
 
+  // decrease amount
+  decreaseAmount(id: number): void {
+    const cartItem = this.cartSubject.value.find((item) => item.id === id);
+    if (cartItem) {
+      const newCart = this.cartSubject.value.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            amount: cartItem.amount ? cartItem.amount - 1 : undefined,
+          };
+        } else {
+          return item;
+        }
+      });
+      this.cartSubject.next(newCart);
+
+      if (cartItem.amount && cartItem.amount < 2) {
+        this.removeFromCart(id);
+      }
+    }
+  }
 
   constructor() {}
 }
