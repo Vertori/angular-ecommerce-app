@@ -13,10 +13,16 @@ export class CartService {
   public cart$: Observable<Product[]> = this.cartSubject.asObservable();
 
   //itemAmount
-  private itemAmountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0)
-  public itemAmount$: Observable<number> = this.itemAmountSubject.asObservable()
+  private itemAmountSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+  public itemAmount$: Observable<number> =
+    this.itemAmountSubject.asObservable();
 
   //total value of cart
+  private totalSubject: BehaviorSubject<number> = new BehaviorSubject<number>(
+    0
+  );
+  public total$: Observable<number> = this.totalSubject.asObservable();
 
   //  add to cart
   addToCart(product: Product, id: number): void {
@@ -39,6 +45,7 @@ export class CartService {
       this.cartSubject.next(newCart);
     }
     this.updateItemAmount();
+    this.updateTotal();
   }
 
   // get cart
@@ -50,7 +57,9 @@ export class CartService {
   removeFromCart(id: number): void {
     const newCart = this.cartSubject.value.filter((item) => item.id !== id);
     this.cartSubject.next(newCart);
+    // update cart items amount and total cart value
     this.updateItemAmount();
+    this.updateTotal();
   }
 
   //increase amount
@@ -59,7 +68,9 @@ export class CartService {
     if (cartItem) {
       this.addToCart(cartItem, id);
     }
+    // update cart items amount and total cart value
     this.updateItemAmount();
+    this.updateTotal();
   }
 
   // decrease amount
@@ -82,13 +93,17 @@ export class CartService {
         this.removeFromCart(id);
       }
     }
+    // update cart items amount and total cart value
     this.updateItemAmount();
+    this.updateTotal();
   }
 
   //cleart cart
   clearCart(): void {
     this.cartSubject.next([]);
+    // update cart items amount and total cart value
     this.updateItemAmount();
+    this.updateTotal();
   }
 
   //update item amount
@@ -100,6 +115,20 @@ export class CartService {
       return accumulator;
     }, 0);
     this.itemAmountSubject.next(amount);
+  }
+
+  //update total cart value
+  private updateTotal(): void {
+    const totalValue = this.cartSubject.value.reduce(
+      (accumulator, currentItem) => {
+        if (currentItem.amount) {
+          return accumulator + currentItem.price * currentItem.amount;
+        }
+        return accumulator;
+      },
+      0
+    );
+    this.totalSubject.next(totalValue);
   }
 
   constructor() {}

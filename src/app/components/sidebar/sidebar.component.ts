@@ -12,6 +12,7 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 export class SidebarComponent implements OnInit {
   cart: Product[] = [];
   itemAmount: number = 0;
+  totalValue: number = 0;
 
   constructor(
     public sidebarService: SidebarService,
@@ -23,6 +24,7 @@ export class SidebarComponent implements OnInit {
     this.cartService.itemAmount$.subscribe(
       (amount) => (this.itemAmount = amount)
     );
+    this.cartService.total$.subscribe((total) => (this.totalValue = total));
   }
 
   clearCart(): void {
