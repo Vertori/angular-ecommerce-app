@@ -11,6 +11,7 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
   cart: Product[] = [];
+  itemAmount: number = 0;
 
   constructor(
     public sidebarService: SidebarService,
@@ -19,6 +20,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.getCart().subscribe((cart) => (this.cart = cart));
+    this.cartService.itemAmount$.subscribe(
+      (amount) => (this.itemAmount = amount)
+    );
   }
 
   clearCart(): void {
