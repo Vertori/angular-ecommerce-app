@@ -18,6 +18,7 @@ import { WomensClothingComponent } from './pages/womens-clothing/womens-clothing
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     HttpClientModule,
     MatIconModule,
+    FontAwesomeModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
