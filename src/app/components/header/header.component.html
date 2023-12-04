@@ -1,4 +1,15 @@
-<header>
-  <div>Header</div>
-  <div (click)="sidebarService.toggleSidebar()">open/close sidebar</div>
+<header [ngClass]="{ active: isActive, inactive: !isActive }">
+  <div class="header-wrapper">
+    <!-- logo  -->
+    <a routerLink="/">
+      <div class="img-wrapper">
+        <img src="assets/store_logo.png" alt="logo" />
+      </div>
+    </a>
+    <!-- cart  -->
+    <div (click)="sidebarService.toggleSidebar()" class="cart-wrapper">
+      <span class="material-icons cart-icon"> shopping_bag </span>
+      <div class="item-amount">0</div>
+    </div>
+  </div>
 </header>
