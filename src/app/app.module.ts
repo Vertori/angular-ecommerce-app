@@ -19,6 +19,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GenderHeroComponent } from './components/gender-hero/gender-hero.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     JeweleryComponent,
     MensClothingComponent,
     WomensClothingComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    GenderHeroComponent
   ],
   imports: [
     BrowserModule,
