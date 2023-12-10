@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CategorizedHeroComponent {
   @Input()
-  gender: string = '';
+  category: string = '';
 }

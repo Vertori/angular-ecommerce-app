@@ -1,1 +1,30 @@
-<p>jewelery works!</p>
+<div>
+  <app-categorized-hero [category]="'Jewelery'"></app-categorized-hero>
+  <section>
+    <div class="section-wrapper">
+      <!-- location nav -->
+      <div class="location-nav-wrapper">
+        <nav>
+          <ol>
+            <li>
+              <a routerLink="/">
+                <fa-icon [icon]="homeIcon" class="fa-icon"></fa-icon>
+              </a>
+            </li>
+            <li>
+              <fa-icon [icon]="rightIcon" class="fa-icon"></fa-icon>
+            </li>
+            <li>Jewelery</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- displayed products -->
+      <div class="displayed-products-wrapper">
+        <app-product
+          *ngFor="let product of filteredJeweleryProducts"
+          [product]="product"
+        ></app-product>
+      </div>
+    </div>
+  </section>
+</div>
