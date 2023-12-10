@@ -17,7 +17,7 @@ import { MensClothingComponent } from './pages/mens-clothing/mens-clothing.compo
 import { WomensClothingComponent } from './pages/womens-clothing/womens-clothing.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -29,13 +29,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SidebarComponent,
     SliderCardComponent,
     FooterComponent,
-    CategorizedHeroComponent,
     CartItemComponent,
     HomeComponent,
     JeweleryComponent,
     MensClothingComponent,
     WomensClothingComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CategorizedHeroComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +45,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
   ],
   providers: [HttpClient],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
