@@ -1,1 +1,65 @@
-<p>product-details works!</p>
+<div class="productdetails-container">
+  <!-- location nav  -->
+  <nav>
+    <ol>
+      <li>
+        <a [routerLink]="['/']">
+          <fa-icon [icon]="homeIcon" class="fa-icon"></fa-icon>
+        </a>
+      </li>
+      <li>
+        <fa-icon [icon]="rightIcon" class="fa-icon"></fa-icon>
+      </li>
+      <li *ngIf="product?.category === 'men\'s clothing'">
+        <a routerLink="/men">{{ product?.category }}</a>
+      </li>
+      <li *ngIf="product?.category === 'women\'s clothing'">
+        <a routerLink="/women">{{ product?.category }}</a>
+      </li>
+      <li *ngIf="product?.category === 'jewelery'">
+        <a routerLink="/jewelery">{{ product?.category }}</a>
+      </li>
+      <li
+        *ngIf="
+          product?.category !== 'men\'s clothing' &&
+          product?.category !== 'women\'s clothing' &&
+          product?.category !== 'jewelery'
+        "
+      >
+        <span>{{ product?.category }}</span>
+      </li>
+      <li>
+        <fa-icon [icon]="rightIcon" class="fa-icon"></fa-icon>
+      </li>
+      <li>{{ product?.title }}</li>
+    </ol>
+  </nav>
+  <!-- product section  -->
+  <section class="product-section">
+    <div class="product-section-wrapper">
+      <!-- image and text wrapper  -->
+      <div class="image-and-text-wrapper">
+        <!-- image  -->
+        <div class="image-wrapper">
+          <img
+            class="max-w-[200px] lg:max-w-sm"
+            [src]="product?.image"
+            [alt]="product?.title"
+          />
+        </div>
+        <!-- text  -->
+        <div class="text-wrapper">
+          <h1>
+            {{ product?.title }}
+          </h1>
+          <div class="price">{{ product?.price }} zł</div>
+          <p class="description">{{ product?.description }}</p>
+          <button *ngIf="product" (click)="addToCart(product, product.id)">
+            Add to cart
+          </button>
+        </div>
+      </div>
+      <!-- SLIDER  -->
+    </div>
+  </section>
+</div>

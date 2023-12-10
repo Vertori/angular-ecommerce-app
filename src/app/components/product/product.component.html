@@ -21,7 +21,7 @@
       <!-- remove from cart button  -->
       <button>
         <div>
-          <a class="eye-icon-wrapper">
+          <a class="eye-icon-wrapper" [routerLink]="['/product', product?.id]">
             <mat-icon>remove_red_eye</mat-icon>
           </a>
         </div>
@@ -31,7 +31,7 @@
   <!-- category, title, price  -->
   <div class="second-wrapper">
     <div class="category">{{ product?.category }}</div>
-    <a [routerLink]="'/product/' + product?.id">
+    <a [routerLink]="['/product', product?.id]">
       <h2 class="title">{{ product?.title }}</h2>
     </a>
     <div class="price">{{ product?.price }} zł</div>
